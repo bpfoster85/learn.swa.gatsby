@@ -14,11 +14,15 @@ jobs:
     name: Build Gatsby Site
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Build Gatsby Site
-      uses: jzweifel/gatsby-cli-github-action@master
-      with:
-        gatsby-arg: build
+      - name: Set Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 14.x
+      - uses: actions/checkout@master
+      - name: Build Gatsby Site
+        uses: jzweifel/gatsby-cli-github-action@master
+        with:
+          gatsby-arg: build
 
   #     - name: Build And Deploy
   #       id: builddeploy
